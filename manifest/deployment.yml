@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myphp
+  labels:
+    app: myphp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myphp
+  template:
+    metadata:
+      labels:
+        app: myphp
+    spec:
+      containers:
+      - name: myphp
+        image: shehmil/phptest:5
+        ports:
+        - containerPort: 80
